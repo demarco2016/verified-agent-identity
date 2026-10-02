@@ -1,14 +1,19 @@
 name: Evaluate Skill
 
 on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
   workflow_dispatch:
+    inputs:
+      allow_paid_evaluation:
+        description: 'Run external Gemini evaluation, which may incur provider charges'
+        type: boolean
+        required: true
+        default: false
+permissions:
+  contents: read
 
 jobs:
   evaluate:
+    if: ${{ inputs.allow_paid_evaluation }}
     runs-on: ubuntu-latest
 
     env:

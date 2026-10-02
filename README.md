@@ -196,3 +196,9 @@ For all other ways to pass environment variables to a skill see the [OpenClaw en
 ## Documentation
 
 See [SKILL.md](SKILL.md) for detailed usage instructions and examples.
+
+## Fork validation
+
+This fork retains upstream attribution and its existing license terms. Local regression tests cover encrypted key roundtrips, tamper rejection, and private atomic file storage. Run `cd scripts && npm test` with Node.js 22+. These tests use generated local values and do not connect a wallet or call the identity service. They do not establish end-to-end SDK compatibility.
+
+Automatic package publication has been replaced with local tests. External Gemini evaluation is manual and requires an explicit cost opt-in. It is not part of routine CI.
